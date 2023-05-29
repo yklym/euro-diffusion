@@ -28,8 +28,6 @@ const main = () => {
     const maxHeight = findMaxCord(countries, "yh") - 1;
     const maxWidth = findMaxCord(countries, "xh") - 1;
 
-    // console.log("max sizes: ", maxHeight, maxWidth);
-
     // creates grid of the map
     const map = initMap(maxWidth, maxHeight);
 
@@ -64,8 +62,6 @@ const main = () => {
 
     let isCompleteAll = Object.values(result).every((d) => d != null);
 
-    // let totalCoins = 0;
-
     let currDay = 0;
 
     let incompleteCountries: string[] = [];
@@ -97,7 +93,6 @@ const main = () => {
           neighbors.forEach((neighbor) =>
             neighbor.coinsIncome.push(dailyPortion)
           );
-          // console.log(neighbors);
 
           city.coinBalance = balanceAddition(
             city.coinBalance,
@@ -123,7 +118,6 @@ const main = () => {
           );
           city.coinBalance = updatedBalance;
           city.coinsIncome = [];
-          // totalCoins += balanceToTotalCoins(city.coinBalance);
 
           if (!isComplete(city.coinBalance)) {
             incompleteCountries.push(city.country.name);
@@ -132,8 +126,6 @@ const main = () => {
       }
 
       currDay += 1;
-
-      // console.log("incompleteCountries", incompleteCountries);
 
       countriesNames.forEach((country) => {
         if (!incompleteCountries.includes(country) && !result[country]) {
@@ -146,7 +138,6 @@ const main = () => {
 
       // day end
       incompleteCountries = [];
-      // totalCoins = 0;
     }
   });
 };
