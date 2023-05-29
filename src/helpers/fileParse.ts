@@ -1,6 +1,6 @@
 import fs from "fs";
 import { CountryInput, InputData } from "../types";
-import { FILENAME } from "../constants";
+import { FILENAME, MAX_CORD, MIN_CORD } from "../constants";
 
 const inputCountryMapper = (line: string): CountryInput => {
   const lineParts = line.split(" ");
@@ -23,7 +23,7 @@ const inputCountryMapper = (line: string): CountryInput => {
   }
 
   // error case 3
-  if (cordsArr.some((cord) => cord > 10 || cord < 1)) {
+  if (cordsArr.some((cord) => cord > MAX_CORD || cord < MIN_CORD)) {
     throw `Invalid input: country ${lineParts[0]} cords are exceeding limits`;
   }
 
