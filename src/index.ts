@@ -82,6 +82,7 @@ const main = () => {
           const neighbors = neighborsCords
             .map(([neighborX, neighborY]) => {
               const xAxisRes = map[neighborX];
+
               if (!xAxisRes || !xAxisRes[neighborY]) {
                 return null;
               }
@@ -130,7 +131,7 @@ const main = () => {
       countriesNames.forEach((country) => {
         if (!incompleteCountries.includes(country) && !result[country]) {
           result[country] = currDay;
-          console.log(country + " " + currDay);
+          console.log(`${country} ${currDay}`);
         }
       });
 
