@@ -92,12 +92,13 @@ export const parseInputFile = () => {
       // error case 4
       // check if country amount is same as actual amount
       // before switching to next test case
-      if (currCountryAmount !== null) {
-        if (currCountryAmount !== testCases[currTestCaseIdx].countries.length) {
-          console.error(
-            "Invalid input: country amount is not same as actual amount"
-          );
-        }
+      if (
+        currCountryAmount !== null &&
+        currCountryAmount !== testCases[currTestCaseIdx].countries.length
+      ) {
+        console.error(
+          "Invalid input: country amount is not same as actual amount"
+        );
       }
 
       // switch to new test case
