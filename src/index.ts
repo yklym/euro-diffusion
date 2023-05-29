@@ -82,11 +82,11 @@ const main = () => {
           const neighbors = neighborsCords
             .map(([neighborX, neighborY]) => {
               const xAxisRes = map[neighborX];
-              if (!xAxisRes) {
+              if (!xAxisRes || !xAxisRes[neighborY]) {
                 return null;
               }
 
-              return xAxisRes[neighborY] ?? null;
+              return xAxisRes[neighborY];
             })
             .filter((_) => !!_) as City[];
 
