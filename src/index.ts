@@ -82,11 +82,12 @@ const main = () => {
           const neighbors = neighborsCords
             .map(([neighborX, neighborY]) => {
               const xAxisRes = map[neighborX];
-              if (!xAxisRes) {
+
+              if (!xAxisRes || !xAxisRes[neighborY]) {
                 return null;
               }
 
-              return xAxisRes[neighborY] ?? null;
+              return xAxisRes[neighborY];
             })
             .filter((_) => !!_) as City[];
 
@@ -130,7 +131,7 @@ const main = () => {
       countriesNames.forEach((country) => {
         if (!incompleteCountries.includes(country) && !result[country]) {
           result[country] = currDay;
-          console.log(country + " " + currDay);
+          console.log(`${country} ${currDay}`);
         }
       });
 
